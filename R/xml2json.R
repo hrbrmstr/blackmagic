@@ -11,7 +11,7 @@
 #' you need into a proper `list` and _then_ call `jsonlite::toJSON()` on said `list`.
 #'
 #' @md
-#' @param doc XML document (character)
+#' @param doc XML document (character, `xml_document` (`xml2`), `XMLInternalDocument` (`XML`) or a URL to be fetched)
 #' @param spaces Number of spaces to be used for indenting JSON output. Default: `0`.
 #' @param compact Whether to produce detailed object or compact object. Default `FALSE`.
 #' @param trim Whether to trim whitespace characters that may exist before and after the text. Default `FALSE`.
@@ -35,7 +35,16 @@
 #'     <todo>Work</todo>
 #'     <todo>Play</todo>
 #' </note>'
+#'
 #' xml_to_json(xml)
+#'
+#' xml_to_json(xml2::read_xml(xml))
+#'
+#' xml_to_json(XML::xmlParse(xml))
+#'
+#' \dontrun{
+#' xml_to_json("https://httpbin.org/xml")
+#' }
 xml_to_json <- function(doc, spaces = 0,
                         compact = FALSE, trim = FALSE, nativeType = FALSE,
                         addParent = FALSE, alwaysArray = FALSE, alwaysChildren = FALSE,
@@ -43,6 +52,18 @@ xml_to_json <- function(doc, spaces = 0,
                         ignoreInstruction = FALSE, ignoreAttributes = FALSE,
                         ignoreComment = FALSE, ignoreCdata = FALSE, ignoreDoctype = FALSE,
                         ignoreText = FALSE) {
+
+  if (inherits(doc, "xml_document")) { doc <- as.character(doc) }
+
+  if (inherits(doc, "XMLInternalDocument")) { doc <- XML::saveXML(doc) }
+
+  if (is_url(doc)) {
+    con <- url(doc)
+    txt <- readLines(con, warn = FALSE)
+    close(con)
+    doc <- paste0(txt, collapse="\n")
+  }
+
 
   compact <- if (compact) "true" else "false"
   trim <- if (trim) "true" else "false"

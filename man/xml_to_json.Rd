@@ -12,7 +12,7 @@ xml_to_json(doc, spaces = 0, compact = FALSE, trim = FALSE,
   ignoreDoctype = FALSE, ignoreText = FALSE)
 }
 \arguments{
-\item{doc}{XML document (character)}
+\item{doc}{XML document (character, \code{xml_document} (\code{xml2}), \code{XMLInternalDocument} (\code{XML}) or a URL to be fetched)}
 
 \item{spaces}{Number of spaces to be used for indenting JSON output. Default: \code{0}.}
 
@@ -62,5 +62,14 @@ xml <- '<?xml version="1.0" encoding="utf-8"?>
     <todo>Work</todo>
     <todo>Play</todo>
 </note>'
+
 xml_to_json(xml)
+
+xml_to_json(xml2::read_xml(xml))
+
+xml_to_json(XML::xmlParse(xml))
+
+\dontrun{
+xml_to_json("https://httpbin.org/xml")
+}
 }

@@ -5,8 +5,10 @@ Automagically Convert XML to JSON
 
 ## Description
 
-Convert XML to JSON. Uses the ‘xml-js’ ‘npm’ library
-<https://www.npmjs.com/package/xml-js> by Yousuf Almarzooqi.
+Given a character string of ‘XML’ an ‘xml2’ or ‘XML’ package document or
+a ‘URL’ to regtrieve XML content from, convert said ‘XML’ to ‘JSON’
+using the ‘xml-js’ ‘npm’ library <https://www.npmjs.com/package/xml-js>
+by Yousuf Almarzooqi.
 
 ## NOTE
 
@@ -58,6 +60,146 @@ cat(xml_to_json(xml))
 ```
 
     ## {"declaration":{"attributes":{"version":"1.0","encoding":"utf-8"}},"elements":[{"type":"element","name":"note","attributes":{"importance":"high","logged":"true"},"elements":[{"type":"element","name":"title","elements":[{"type":"text","text":"Happy"}]},{"type":"element","name":"todo","elements":[{"type":"text","text":"Work"}]},{"type":"element","name":"todo","elements":[{"type":"text","text":"Play"}]}]}]}
+
+### Sample (`xml2`)
+
+``` r
+cat(xml_to_json(xml2::read_xml(xml)))
+```
+
+    ## {"declaration":{"attributes":{"version":"1.0","encoding":"UTF-8"}},"elements":[{"type":"element","name":"note","attributes":{"importance":"high","logged":"true"},"elements":[{"type":"element","name":"title","elements":[{"type":"text","text":"Happy"}]},{"type":"element","name":"todo","elements":[{"type":"text","text":"Work"}]},{"type":"element","name":"todo","elements":[{"type":"text","text":"Play"}]}]}]}
+
+### Sample (`XML`)
+
+``` r
+cat(xml_to_json(XML::xmlParse(xml)))
+```
+
+    ## {"declaration":{"attributes":{"version":"1.0","encoding":"utf-8"}},"elements":[{"type":"element","name":"note","attributes":{"importance":"high","logged":"true"},"elements":[{"type":"element","name":"title","elements":[{"type":"text","text":"Happy"}]},{"type":"element","name":"todo","elements":[{"type":"text","text":"Work"}]},{"type":"element","name":"todo","elements":[{"type":"text","text":"Play"}]}]}]}
+
+### Sample (URL + saner tweaks)
+
+``` r
+cat(xml_to_json("https://httpbin.org/xml", spaces = 2, compact = FALSE, ignoreDeclaration = TRUE))
+```
+
+    ## {
+    ##   "elements": [
+    ##     {
+    ##       "type": "comment",
+    ##       "comment": "  A SAMPLE set of slides  "
+    ##     },
+    ##     {
+    ##       "type": "element",
+    ##       "name": "slideshow",
+    ##       "attributes": {
+    ##         "title": "Sample Slide Show",
+    ##         "date": "Date of publication",
+    ##         "author": "Yours Truly"
+    ##       },
+    ##       "elements": [
+    ##         {
+    ##           "type": "comment",
+    ##           "comment": " TITLE SLIDE "
+    ##         },
+    ##         {
+    ##           "type": "element",
+    ##           "name": "slide",
+    ##           "attributes": {
+    ##             "type": "all"
+    ##           },
+    ##           "elements": [
+    ##             {
+    ##               "type": "element",
+    ##               "name": "title",
+    ##               "elements": [
+    ##                 {
+    ##                   "type": "text",
+    ##                   "text": "Wake up to WonderWidgets!"
+    ##                 }
+    ##               ]
+    ##             }
+    ##           ]
+    ##         },
+    ##         {
+    ##           "type": "comment",
+    ##           "comment": " OVERVIEW "
+    ##         },
+    ##         {
+    ##           "type": "element",
+    ##           "name": "slide",
+    ##           "attributes": {
+    ##             "type": "all"
+    ##           },
+    ##           "elements": [
+    ##             {
+    ##               "type": "element",
+    ##               "name": "title",
+    ##               "elements": [
+    ##                 {
+    ##                   "type": "text",
+    ##                   "text": "Overview"
+    ##                 }
+    ##               ]
+    ##             },
+    ##             {
+    ##               "type": "element",
+    ##               "name": "item",
+    ##               "elements": [
+    ##                 {
+    ##                   "type": "text",
+    ##                   "text": "Why "
+    ##                 },
+    ##                 {
+    ##                   "type": "element",
+    ##                   "name": "em",
+    ##                   "elements": [
+    ##                     {
+    ##                       "type": "text",
+    ##                       "text": "WonderWidgets"
+    ##                     }
+    ##                   ]
+    ##                 },
+    ##                 {
+    ##                   "type": "text",
+    ##                   "text": " are great"
+    ##                 }
+    ##               ]
+    ##             },
+    ##             {
+    ##               "type": "element",
+    ##               "name": "item"
+    ##             },
+    ##             {
+    ##               "type": "element",
+    ##               "name": "item",
+    ##               "elements": [
+    ##                 {
+    ##                   "type": "text",
+    ##                   "text": "Who "
+    ##                 },
+    ##                 {
+    ##                   "type": "element",
+    ##                   "name": "em",
+    ##                   "elements": [
+    ##                     {
+    ##                       "type": "text",
+    ##                       "text": "buys"
+    ##                     }
+    ##                   ]
+    ##                 },
+    ##                 {
+    ##                   "type": "text",
+    ##                   "text": " WonderWidgets"
+    ##                 }
+    ##               ]
+    ##             }
+    ##           ]
+    ##         }
+    ##       ]
+    ##     }
+    ##   ]
+    ## }
 
 ### Sample (some saner tweaks)
 

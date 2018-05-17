@@ -2,3 +2,5 @@
 
 export(xml_to_json)
 import(V8)
+import(xml2)
+importFrom(XML,saveXML)
