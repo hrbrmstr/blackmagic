@@ -45,7 +45,15 @@ xml_to_json(doc, spaces = 0, compact = FALSE, trim = FALSE,
 \item{ignoreText}{Whether to ignore parsing texts of the elements. That is, no text will be generated. Default \code{FALSE}.}
 }
 \description{
-Convert XML to JSON
+Please reconsider your apparent desire to use this function.\cr
+\cr
+Automagic conversion of XML to JSON is \emph{rarely} a good idea and a path fraught
+with peril. There are \emph{so many} options to tweak to ensure you get what you think
+you want but likely truly want something else entirely, such as a more minimal
+extract of the original XML file.\cr
+\cr
+Seriously consider parsing the XML then using \code{purrr} idioms to extract the data
+you need into a proper \code{list} and \emph{then} call \code{jsonlite::toJSON()} on said \code{list}.
 }
 \examples{
 xml <- '<?xml version="1.0" encoding="utf-8"?>

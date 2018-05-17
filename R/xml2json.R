@@ -1,5 +1,15 @@
 #' Convert XML to JSON
 #'
+#' Please reconsider your apparent desire to use this function.\cr
+#' \cr
+#' Automagic conversion of XML to JSON is _rarely_ a good idea and a path fraught
+#' with peril. There are _so many_ options to tweak to ensure you get what you think
+#' you want but likely truly want something else entirely, such as a more minimal
+#' extract of the original XML file.\cr
+#' \cr
+#' Seriously consider parsing the XML then using `purrr` idioms to extract the data
+#' you need into a proper `list` and _then_ call `jsonlite::toJSON()` on said `list`.
+#'
 #' @md
 #' @param doc XML document (character)
 #' @param spaces Number of spaces to be used for indenting JSON output. Default: `0`.

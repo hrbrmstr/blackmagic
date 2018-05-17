@@ -9,6 +9,17 @@
 Convert XML to JSON. Uses the 'xml-js' 'npm' library
 \url{https://www.npmjs.com/package/xml-js} by Yousuf Almarzooqi.
 }
+\details{
+Please reconsider your apparent desire to use this package.
+
+Automagic conversion of XML to JSON is \emph{rarely} a good idea and a path fraught
+with peril. There are \emph{so many} options to tweak to ensure you get what you think
+you want but likely truly want something else entirely, such as a more minimal
+extract of the original XML file.
+
+Seriously consider parsing the XML then using \code{purrr} idioms to extract the data
+you need into a proper \code{list} and \emph{then} call \code{jsonlite::toJSON()} on said \code{list}.
+}
 \author{
 Bob Rudis (bob@rud.is)
 }
