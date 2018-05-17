@@ -1,6 +1,8 @@
 
 # blackmagic
 
+Automagically Convert XML to JSON
+
 ## Description
 
 Convert XML to JSON. Uses the ‘xml-js’ ‘npm’ library
@@ -138,3 +140,9 @@ cat(xml_to_json(books, spaces = 2, compact = TRUE, ignoreDeclaration = TRUE))
     ##     ]
     ##   }
     ## }
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.

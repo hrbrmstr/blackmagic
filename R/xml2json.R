@@ -36,7 +36,7 @@ xml_to_json <- function(doc, spaces = 0,
 
   compact <- if (compact) "true" else "false"
   trim <- if (trim) "true" else "false"
-  nativeType<- if (nativeType) "true" else "false"
+  nativeType <- if (nativeType) "true" else "false"
   addParent <- if (addParent) "true" else "false"
   alwaysArray <- if (alwaysArray) "true" else "false"
   alwaysChildren<- if (alwaysChildren) "true" else "false"
