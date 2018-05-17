@@ -1,0 +1,26 @@
+Package: blackmagic
+Type: Package
+Title: Convert XML to JSON
+Version: 0.1.0
+Date: 2018-05-17
+Authors@R: c(
+    person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
+           comment = c(ORCID = "0000-0001-5670-2640")),
+    person("Yousuf", "Almarzooqi", role = c("aut"), 
+           comment = "xml-js npm library; <<https://www.npmjs.com/package/xml-js>")
+  )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: Convert XML to JSON. Uses the 'xml-js' 'npm' library
+    <https://www.npmjs.com/package/xml-js> by Yousuf Almarzooqi.
+URL: https://github.com/hrbrmstr/blackmagic
+BugReports: https://github.com/hrbrmstr/blackmagic/issues
+Encoding: UTF-8
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    V8
+RoxygenNote: 6.0.1.9000

@@ -1,0 +1,77 @@
+---
+output: rmarkdown::github_document
+---
+
+# blackmagic
+
+## Description
+
+Convert XML to JSON. Uses the 'xml-js' 'npm' library <https://www.npmjs.com/package/xml-js> by Yousuf Almarzooqi.
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+- `xml_to_json`:	Convert XML to JSON
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/blackmagic")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(blackmagic)
+
+# current verison
+packageVersion("blackmagic")
+
+```
+
+### Sample (defaults)
+
+```{r}
+
+xml <- '<?xml version="1.0" encoding="utf-8"?>
+<note importance="high" logged="true">
+    <title>Happy</title>
+    <todo>Work</todo>
+    <todo>Play</todo>
+</note>'
+
+cat(xml_to_json(xml))
+```
+
+### Sample (some saner tweaks)
+
+```{r}
+'<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+  <book category="cooking">
+    <title lang="en">Everyday Italian</title>
+    <author>Giada De Laurentiis</author>
+    <year>2005</year>
+    <price>30.00</price>
+  </book>
+  <book category="children">
+    <title lang="en">Harry Potter</title>
+    <author>J K. Rowling</author>
+    <year>2005</year>
+    <price>29.99</price>
+  </book>
+  <book category="web">
+    <title lang="en">Learning XML</title>
+    <author>Erik T. Ray</author>
+    <year>2003</year>
+    <price>39.95</price>
+  </book>
+</bookstore>' -> books
+
+cat(xml_to_json(books, spaces = 2, compact = TRUE, ignoreDeclaration = TRUE))
+```
