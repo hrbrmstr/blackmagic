@@ -64,7 +64,6 @@ xml_to_json <- function(doc, spaces = 0,
     doc <- paste0(txt, collapse="\n")
   }
 
-
   compact <- if (compact) "true" else "false"
   trim <- if (trim) "true" else "false"
   nativeType <- if (nativeType) "true" else "false"
@@ -104,6 +103,12 @@ ignoreText : %s
   )
 
   js_param <- gsub("\n", " ", js_param)
+
+  if (length(.pkgenv$ctx) == 0) {
+    ctx <- V8::v8()
+    ctx$source(system.file("js/bundle.js", package="blackmagic"))
+    assign("ctx", ctx, envir=.pkgenv)
+  }
 
   .pkgenv$ctx$call("incant.xml2json", doc, JS(js_param))
 
