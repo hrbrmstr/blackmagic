@@ -4,6 +4,8 @@ output: rmarkdown::github_document
 
 # blackmagic
 
+Automagically Convert XML to JSON
+
 ## Description
 
 Convert XML to JSON. Uses the 'xml-js' 'npm' library <https://www.npmjs.com/package/xml-js> by Yousuf Almarzooqi.

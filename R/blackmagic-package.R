@@ -1,4 +1,4 @@
-#' Convert XML to JSON
+#' Automagically Convert XML to JSON
 #'
 #' Convert XML to JSON. Uses the 'xml-js' 'npm' library
 #' <https://www.npmjs.com/package/xml-js> by Yousuf Almarzooqi.

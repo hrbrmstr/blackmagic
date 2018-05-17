@@ -4,7 +4,7 @@
 \name{blackmagic}
 \alias{blackmagic}
 \alias{blackmagic-package}
-\title{Convert XML to JSON}
+\title{Automagically Convert XML to JSON}
 \description{
 Convert XML to JSON. Uses the 'xml-js' 'npm' library
 \url{https://www.npmjs.com/package/xml-js} by Yousuf Almarzooqi.

@@ -1,6 +1,6 @@
 Package: blackmagic
 Type: Package
-Title: Convert XML to JSON
+Title: Automagically Convert XML to JSON
 Version: 0.1.0
 Date: 2018-05-17
 Authors@R: c(
