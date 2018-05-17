@@ -6,9 +6,9 @@
 \alias{blackmagic-package}
 \title{Automagically Convert XML to JSON}
 \description{
-Given a character string of 'XML' an 'xml2' or 'XML' package document
-or a 'URL' to regtrieve XML content from, convert said 'XML' to 'JSON' using
-the 'xml-js' 'npm' library \url{https://www.npmjs.com/package/xml-js} by Yousuf Almarzooqi.
+Given a character string of 'XML', an 'xml2' or 'XML' package document,
+or a 'URL' to retrieve XML content from, convert said 'XML' to 'JSON' using
+the 'xml-js' 'npm' library \url{https://www.npmjs.com/package/xml-js} by 'Yousuf Almarzooqi'.
 }
 \details{
 Please reconsider your apparent desire to use this package.

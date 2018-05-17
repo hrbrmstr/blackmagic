@@ -11,8 +11,8 @@ Authors@R: c(
   )
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Given a character string of 'XML' an 'xml2' or 'XML' package document
-    or a 'URL' to regtrieve XML content from, convert said 'XML' to 'JSON' using 
-    the 'xml-js' 'npm' library <https://www.npmjs.com/package/xml-js> by Yousuf Almarzooqi.
+    or a 'URL' to retrieve XML content from, convert said 'XML' to 'JSON' using 
+    the 'xml-js' 'npm' library <https://www.npmjs.com/package/xml-js> by 'Yousuf Almarzooqi'.
 URL: https://github.com/hrbrmstr/blackmagic
 BugReports: https://github.com/hrbrmstr/blackmagic/issues
 Encoding: UTF-8
@@ -24,5 +24,6 @@ Depends:
     R (>= 3.2.0)
 Imports:
     V8,
-    xml2
+    xml2,
+    XML
 RoxygenNote: 6.0.1.9000
