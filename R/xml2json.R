@@ -8,7 +8,7 @@
 #' extract of the original XML file.\cr
 #' \cr
 #' Seriously consider parsing the XML then using `purrr` idioms to extract the data
-#' you need into a proper `list` and _then_ call `jsonlite::toJSON()` on said `list`.
+#' you need into a proper `list` and _then_ call [jsonlite::toJSON()] on said `list`.
 #'
 #' @md
 #' @param doc XML document (character, `xml_document` (`xml2`), `XMLInternalDocument` (`XML`) or a URL to be fetched)

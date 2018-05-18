@@ -1,33 +1,35 @@
 
 # blackmagic
 
-Automagically Convert XML to JSON
+Automagically Convert ‘XML’ to ‘JSON’/‘JSON’ to ‘XML’
 
 ## Description
 
 Given a character string of ‘XML’, an ‘xml2’ or ‘XML’ package document,
 or a ‘URL’ to retrieve XML content from, convert said ‘XML’ to ‘JSON’
 using the ‘xml-js’ ‘npm’ library <https://www.npmjs.com/package/xml-js>
-by Yousuf Almarzooqi.
+by Yousuf Almarzooqi. Also handles the reverse (e.g. ‘JSON’ to ‘XML’).
 
 ## NOTE
 
 Please reconsider your apparent desire to use this package.
 
-Automagic conversion of XML to JSON is *rarely* a good idea and a path
-fraught with peril. There are *so many* options to tweak to ensure you
-get what you think you want but likely truly want something else
-entirely, such as a more minimal extract of the original XML file.
+Automagic conversion of XML to JSON (or vice-versa) is *rarely* a good
+idea and a path fraught with peril. There are *so many* options to tweak
+to ensure you get what you think you want but likely truly want
+something else entirely, such as a more minimal extract of the original
+XML file.
 
-Seriously consider parsing the XML then using `purrr` idioms to extract
-the data you need into a proper `list` and *then* call
-`jsonlite::toJSON()` on said `list`.
+Seriously consider parsing the XML/JSON then using `purrr` idioms to
+extract the data you need into a proper `list` and *then* call
+`jsonlite::toJSON()` or `xml2::as_xml_document()` on said `list`.
 
 ## What’s Inside The Tin
 
 The following functions are implemented:
 
   - `xml_to_json`: Convert XML to JSON
+  - `json_to_xml`: Convert JSON to XML
 
 ## Installation
 
@@ -295,6 +297,41 @@ cat(xml_to_json(books, spaces = 2, compact = TRUE, ignoreDeclaration = TRUE))
     ##     ]
     ##   }
     ## }
+
+### The other way ’round
+
+``` r
+cat(json_to_xml(jsonlite::toJSON(head(mtcars, 2)), spaces=2))
+```
+
+    ## <0>
+    ##   <mpg>21</mpg>
+    ##   <cyl>6</cyl>
+    ##   <disp>160</disp>
+    ##   <hp>110</hp>
+    ##   <drat>3.9</drat>
+    ##   <wt>2.62</wt>
+    ##   <qsec>16.46</qsec>
+    ##   <vs>0</vs>
+    ##   <am>1</am>
+    ##   <gear>4</gear>
+    ##   <carb>4</carb>
+    ##   <_row>Mazda RX4</_row>
+    ## </0>
+    ## <1>
+    ##   <mpg>21</mpg>
+    ##   <cyl>6</cyl>
+    ##   <disp>160</disp>
+    ##   <hp>110</hp>
+    ##   <drat>3.9</drat>
+    ##   <wt>2.875</wt>
+    ##   <qsec>17.02</qsec>
+    ##   <vs>0</vs>
+    ##   <am>1</am>
+    ##   <gear>4</gear>
+    ##   <carb>4</carb>
+    ##   <_row>Mazda RX4 Wag</_row>
+    ## </1>
 
 ## Code of Conduct
 

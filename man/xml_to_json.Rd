@@ -53,7 +53,7 @@ you want but likely truly want something else entirely, such as a more minimal
 extract of the original XML file.\cr
 \cr
 Seriously consider parsing the XML then using \code{purrr} idioms to extract the data
-you need into a proper \code{list} and \emph{then} call \code{jsonlite::toJSON()} on said \code{list}.
+you need into a proper \code{list} and \emph{then} call \code{\link[jsonlite:toJSON]{jsonlite::toJSON()}} on said \code{list}.
 }
 \examples{
 xml <- '<?xml version="1.0" encoding="utf-8"?>

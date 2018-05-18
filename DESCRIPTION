@@ -1,6 +1,6 @@
 Package: blackmagic
 Type: Package
-Title: Automagically Convert XML to JSON
+Title: Automagically Convert 'XML' to 'JSON'/'JSON' to 'XML'
 Version: 0.1.0
 Date: 2018-05-17
 Authors@R: c(
@@ -13,6 +13,7 @@ Maintainer: Bob Rudis <bob@rud.is>
 Description: Given a character string of 'XML' an 'xml2' or 'XML' package document
     or a 'URL' to retrieve XML content from, convert said 'XML' to 'JSON' using 
     the 'xml-js' 'npm' library <https://www.npmjs.com/package/xml-js> by 'Yousuf Almarzooqi'.
+    Also handles the reverse (e.g. 'JSON' to 'XML').
 URL: https://github.com/hrbrmstr/blackmagic
 BugReports: https://github.com/hrbrmstr/blackmagic/issues
 Encoding: UTF-8
