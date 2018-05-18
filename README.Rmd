@@ -113,6 +113,12 @@ cat(xml_to_json(books, spaces = 2, compact = TRUE, ignoreDeclaration = TRUE))
 cat(json_to_xml(jsonlite::toJSON(head(mtcars, 2)), spaces=2))
 ```
 
+### With a URL source
+
+```{r}
+cat(json_to_xml("https://httpbin.org/uuid", spaces=2))
+```
+
 ## Code of Conduct
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

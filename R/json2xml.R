@@ -28,6 +28,8 @@
 #' @export
 #' @examples
 #' json_to_xml(jsonlite::toJSON(head(mtcars, 2)), spaces=2)
+#'
+#' json_to_xml("https://httpbin.org/uuid", spaces=2)
 json_to_xml <- function(doc, spaces = 0, compact = TRUE,
                         fullTagEmptyElement = FALSE, indentCdata = FALSE,
                         indentAttributes = FALSE, ignoreDeclaration = FALSE,

@@ -53,4 +53,6 @@ the \code{compact} parameter should nigh always be \code{TRUE}.
 }
 \examples{
 json_to_xml(jsonlite::toJSON(head(mtcars, 2)), spaces=2)
+
+json_to_xml("https://httpbin.org/uuid", spaces=2)
 }
